@@ -72,7 +72,7 @@ namespace PaintOOP
             this.fileToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 28);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 30);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "mainMenuStrip";
             // 
@@ -85,7 +85,7 @@ namespace PaintOOP
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -129,16 +129,16 @@ namespace PaintOOP
             this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Controls.Add(this.pictureBox);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 28);
+            this.panel.Location = new System.Drawing.Point(0, 30);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1163, 497);
+            this.panel.Size = new System.Drawing.Size(1163, 495);
             this.panel.TabIndex = 2;
             // 
             // addFigureButton
             // 
             this.addFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addFigureButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addFigureButton.Location = new System.Drawing.Point(0, 541);
+            this.addFigureButton.Location = new System.Drawing.Point(0, 587);
             this.addFigureButton.Name = "addFigureButton";
             this.addFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addFigureButton.Size = new System.Drawing.Size(50, 50);
