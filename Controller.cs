@@ -16,5 +16,10 @@ namespace PaintOOP
         {
             InitializeComponent();
         }
+
+        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

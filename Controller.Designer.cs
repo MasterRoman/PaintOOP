@@ -37,6 +37,9 @@ namespace PaintOOP
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel = new System.Windows.Forms.Panel();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.pointerToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.lineToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -44,12 +47,14 @@ namespace PaintOOP
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.panel = new System.Windows.Forms.Panel();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.toolStrip2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -59,7 +64,7 @@ namespace PaintOOP
             this.fileToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 28);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 30);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "mainMenuStrip";
             // 
@@ -78,36 +83,73 @@ namespace PaintOOP
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(142, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ";
+            // 
+            // panel
+            // 
+            this.panel.AutoScroll = true;
+            this.panel.Controls.Add(this.toolStrip1);
+            this.panel.Controls.Add(this.toolStrip2);
+            this.panel.Controls.Add(this.pictureBox);
+            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Location = new System.Drawing.Point(0, 30);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(1163, 495);
+            this.panel.TabIndex = 2;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(53, 43);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1050, 500);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1142, 43);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
             // 
             // toolStrip1
             // 
+            this.toolStrip1.AutoSize = false;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pointerToolStripButton,
             this.lineToolStripButton,
@@ -115,10 +157,10 @@ namespace PaintOOP
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 43);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(30, 497);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Size = new System.Drawing.Size(50, 500);
+            this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // pointerToolStripButton
@@ -127,7 +169,7 @@ namespace PaintOOP
             this.pointerToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pointerToolStripButton.Image")));
             this.pointerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pointerToolStripButton.Name = "pointerToolStripButton";
-            this.pointerToolStripButton.Size = new System.Drawing.Size(27, 24);
+            this.pointerToolStripButton.Size = new System.Drawing.Size(48, 34);
             this.pointerToolStripButton.Text = "toolStripButton1";
             // 
             // lineToolStripButton
@@ -175,24 +217,32 @@ namespace PaintOOP
             this.toolStripButton6.Size = new System.Drawing.Size(27, 24);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // panel
+            // toolStripButton1
             // 
-            this.panel.AutoScroll = true;
-            this.panel.Controls.Add(this.pictureBox);
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(30, 28);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1133, 497);
-            this.panel.TabIndex = 2;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // pictureBox
+            // toolStripButton2
             // 
-            this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1050, 500);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // Controller
             // 
@@ -200,7 +250,6 @@ namespace PaintOOP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 525);
             this.Controls.Add(this.panel);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "Controller";
@@ -209,11 +258,13 @@ namespace PaintOOP
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +279,8 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton pointerToolStripButton;
         private System.Windows.Forms.ToolStripButton lineToolStripButton;
@@ -235,8 +288,10 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }
 
