@@ -12,7 +12,7 @@ namespace PaintOOP.View
         public static void cleanScreen(System.Windows.Forms.PaintEventArgs e,int x,int y,int height,int width)
         {
             Brush brush = new SolidBrush(Color.White);
-            e.Graphics.FillRectangle(brush, x, y, height, width);
+            e.Graphics.FillRectangle(brush, x, y,width,height);
         }
 
         public static void drawFigures(System.Windows.Forms.PaintEventArgs e) //will complete after declare model
