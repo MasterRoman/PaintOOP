@@ -58,11 +58,6 @@ namespace PaintOOP
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.выфToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ыфвToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.mainMenuStrip.SuspendLayout();
             this.panel.SuspendLayout();
             this.instrumentToolStrip.SuspendLayout();
@@ -238,10 +233,7 @@ namespace PaintOOP
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11,
-            this.toolStripSeparator2,
-            this.toolStripSplitButton1,
-            this.toolStripDropDownButton1,
-            this.toolStripComboBox1});
+            this.toolStripSeparator2});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(1142, 43);
@@ -340,47 +332,6 @@ namespace PaintOOP
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выфToolStripMenuItem,
-            this.ыфвToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(49, 40);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // выфToolStripMenuItem
-            // 
-            this.выфToolStripMenuItem.Name = "выфToolStripMenuItem";
-            this.выфToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.выфToolStripMenuItem.Text = "выф";
-            // 
-            // ыфвToolStripMenuItem
-            // 
-            this.ыфвToolStripMenuItem.Name = "ыфвToolStripMenuItem";
-            this.ыфвToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.ыфвToolStripMenuItem.Text = "ыфв";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(44, 40);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Items.AddRange(new object[] {
-            "-",
-            "- - -"});
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 43);
-            // 
             // Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -437,11 +388,6 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem выфToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ыфвToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 
