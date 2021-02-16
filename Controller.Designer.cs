@@ -38,23 +38,24 @@ namespace PaintOOP
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.instrumentToolStrip = new System.Windows.Forms.ToolStrip();
             this.pointerToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.lineToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.rectangleToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.addFigureButton = new System.Windows.Forms.Button();
             this.mainMenuStrip.SuspendLayout();
             this.panel.SuspendLayout();
+            this.instrumentToolStrip.SuspendLayout();
+            this.mainToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.toolStrip2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -77,7 +78,7 @@ namespace PaintOOP
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -112,8 +113,9 @@ namespace PaintOOP
             // panel
             // 
             this.panel.AutoScroll = true;
-            this.panel.Controls.Add(this.toolStrip1);
-            this.panel.Controls.Add(this.toolStrip2);
+            this.panel.Controls.Add(this.addFigureButton);
+            this.panel.Controls.Add(this.instrumentToolStrip);
+            this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Controls.Add(this.pictureBox);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 30);
@@ -121,47 +123,23 @@ namespace PaintOOP
             this.panel.Size = new System.Drawing.Size(1163, 495);
             this.panel.TabIndex = 2;
             // 
-            // pictureBox
+            // instrumentToolStrip
             // 
-            this.pictureBox.Location = new System.Drawing.Point(53, 43);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1050, 500);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.AutoSize = false;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1142, 43);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.instrumentToolStrip.AutoSize = false;
+            this.instrumentToolStrip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.instrumentToolStrip.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.instrumentToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pointerToolStripButton,
             this.lineToolStripButton,
             this.rectangleToolStripButton,
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 43);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(50, 500);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.instrumentToolStrip.Location = new System.Drawing.Point(0, 43);
+            this.instrumentToolStrip.Name = "instrumentToolStrip";
+            this.instrumentToolStrip.Size = new System.Drawing.Size(50, 454);
+            this.instrumentToolStrip.TabIndex = 2;
+            this.instrumentToolStrip.Text = "toolStrip1";
             // 
             // pointerToolStripButton
             // 
@@ -178,7 +156,7 @@ namespace PaintOOP
             this.lineToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("lineToolStripButton.Image")));
             this.lineToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.lineToolStripButton.Name = "lineToolStripButton";
-            this.lineToolStripButton.Size = new System.Drawing.Size(27, 24);
+            this.lineToolStripButton.Size = new System.Drawing.Size(48, 34);
             this.lineToolStripButton.Text = "toolStripButton2";
             // 
             // rectangleToolStripButton
@@ -187,7 +165,7 @@ namespace PaintOOP
             this.rectangleToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("rectangleToolStripButton.Image")));
             this.rectangleToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.rectangleToolStripButton.Name = "rectangleToolStripButton";
-            this.rectangleToolStripButton.Size = new System.Drawing.Size(27, 24);
+            this.rectangleToolStripButton.Size = new System.Drawing.Size(48, 34);
             this.rectangleToolStripButton.Text = "toolStripButton3";
             // 
             // toolStripButton4
@@ -196,7 +174,7 @@ namespace PaintOOP
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(27, 24);
+            this.toolStripButton4.Size = new System.Drawing.Size(48, 34);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // toolStripButton5
@@ -205,7 +183,7 @@ namespace PaintOOP
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(27, 24);
+            this.toolStripButton5.Size = new System.Drawing.Size(48, 34);
             this.toolStripButton5.Text = "toolStripButton5";
             // 
             // toolStripButton6
@@ -214,8 +192,22 @@ namespace PaintOOP
             this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(27, 24);
+            this.toolStripButton6.Size = new System.Drawing.Size(48, 34);
             this.toolStripButton6.Text = "toolStripButton6";
+            // 
+            // mainToolStrip
+            // 
+            this.mainToolStrip.AutoSize = false;
+            this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3});
+            this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainToolStrip.Name = "mainToolStrip";
+            this.mainToolStrip.Size = new System.Drawing.Size(1142, 43);
+            this.mainToolStrip.TabIndex = 1;
+            this.mainToolStrip.Text = "mainToolStrip";
             // 
             // toolStripButton1
             // 
@@ -223,7 +215,7 @@ namespace PaintOOP
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(34, 40);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
@@ -232,7 +224,7 @@ namespace PaintOOP
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(34, 40);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
@@ -241,8 +233,31 @@ namespace PaintOOP
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(34, 40);
             this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(53, -3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1050, 500);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            // 
+            // addFigureButton
+            // 
+            this.addFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addFigureButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addFigureButton.Location = new System.Drawing.Point(0, 447);
+            this.addFigureButton.Name = "addFigureButton";
+            this.addFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.addFigureButton.Size = new System.Drawing.Size(50, 50);
+            this.addFigureButton.TabIndex = 5;
+            this.addFigureButton.TabStop = false;
+            this.addFigureButton.Text = "+";
+            this.addFigureButton.UseVisualStyleBackColor = true;
             // 
             // Controller
             // 
@@ -260,11 +275,11 @@ namespace PaintOOP
             this.mainMenuStrip.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            this.instrumentToolStrip.ResumeLayout(false);
+            this.instrumentToolStrip.PerformLayout();
+            this.mainToolStrip.ResumeLayout(false);
+            this.mainToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,17 +296,18 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip instrumentToolStrip;
         private System.Windows.Forms.ToolStripButton pointerToolStripButton;
         private System.Windows.Forms.ToolStripButton lineToolStripButton;
         private System.Windows.Forms.ToolStripButton rectangleToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip mainToolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.Button addFigureButton;
     }
 }
 
