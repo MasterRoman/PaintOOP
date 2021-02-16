@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PaintOOP.View;
 
 namespace PaintOOP
 {
@@ -19,6 +20,8 @@ namespace PaintOOP
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
+            MainView.cleanScreen(e, 0, 0,this.pictureBox.Height, this.pictureBox.Width);
+            MainView.drawFigures(e); //will complete
 
         }
     }
