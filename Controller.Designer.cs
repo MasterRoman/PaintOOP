@@ -288,9 +288,12 @@ namespace PaintOOP
             this.instrumentToolStrip.Size = new System.Drawing.Size(50, 500);
             this.instrumentToolStrip.TabIndex = 2;
             this.instrumentToolStrip.Text = "toolStrip1";
+            this.instrumentToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.instrumentToolStrip_ItemClicked);
             // 
             // pointerToolStripButton
             // 
+            this.pointerToolStripButton.Checked = true;
+            this.pointerToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pointerToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pointerToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pointerToolStripButton.Image")));
             this.pointerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;

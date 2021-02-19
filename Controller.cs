@@ -49,5 +49,23 @@ namespace PaintOOP
 
             //TODO: set fill color
         }
+
+        private void instrumentToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            foreach (ToolStripButton item in this.instrumentToolStrip.Items)
+            {
+                if (item == e.ClickedItem)
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+                else
+                {
+                    item.CheckState = CheckState.Unchecked;
+                }
+            }
+
+            //TODO: set particular figure!!!
+
+        }
     }
 }
