@@ -58,6 +58,8 @@ namespace PaintOOP
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainMenuStrip.SuspendLayout();
             this.panel.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
@@ -92,42 +94,42 @@ namespace PaintOOP
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(214, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F12)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ";
             // 
             // panel
             // 
             this.panel.AutoScroll = true;
             this.panel.Controls.Add(this.addFigureButton);
-            this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Controls.Add(this.pictureBox);
             this.panel.Controls.Add(this.instrumentToolStrip);
+            this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 28);
             this.panel.Name = "panel";
@@ -138,7 +140,7 @@ namespace PaintOOP
             // 
             this.addFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addFigureButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addFigureButton.Location = new System.Drawing.Point(0, 450);
+            this.addFigureButton.Location = new System.Drawing.Point(0, 499);
             this.addFigureButton.Name = "addFigureButton";
             this.addFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addFigureButton.Size = new System.Drawing.Size(50, 50);
@@ -162,9 +164,9 @@ namespace PaintOOP
             this.toolStripButton10,
             this.toolStripButton11,
             this.toolStripSeparator2});
-            this.mainToolStrip.Location = new System.Drawing.Point(50, 0);
+            this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mainToolStrip.Name = "mainToolStrip";
-            this.mainToolStrip.Size = new System.Drawing.Size(1092, 43);
+            this.mainToolStrip.Size = new System.Drawing.Size(1142, 43);
             this.mainToolStrip.TabIndex = 1;
             this.mainToolStrip.Text = "mainToolStrip";
             // 
@@ -272,9 +274,9 @@ namespace PaintOOP
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripButton6});
-            this.instrumentToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.instrumentToolStrip.Location = new System.Drawing.Point(0, 43);
             this.instrumentToolStrip.Name = "instrumentToolStrip";
-            this.instrumentToolStrip.Size = new System.Drawing.Size(50, 543);
+            this.instrumentToolStrip.Size = new System.Drawing.Size(50, 500);
             this.instrumentToolStrip.TabIndex = 2;
             this.instrumentToolStrip.Text = "toolStrip1";
             // 
@@ -332,6 +334,10 @@ namespace PaintOOP
             this.toolStripButton6.Size = new System.Drawing.Size(48, 34);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -388,6 +394,8 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
