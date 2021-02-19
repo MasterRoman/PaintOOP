@@ -57,9 +57,14 @@ namespace PaintOOP
             this.rectangleToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.lineSizeChangeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.colorChangeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.fillColorChangeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.panel.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
@@ -74,7 +79,7 @@ namespace PaintOOP
             this.fileToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 28);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1163, 30);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "mainMenuStrip";
             // 
@@ -87,7 +92,7 @@ namespace PaintOOP
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -131,16 +136,16 @@ namespace PaintOOP
             this.panel.Controls.Add(this.instrumentToolStrip);
             this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 28);
+            this.panel.Location = new System.Drawing.Point(0, 30);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1163, 497);
+            this.panel.Size = new System.Drawing.Size(1163, 495);
             this.panel.TabIndex = 2;
             // 
             // addFigureButton
             // 
             this.addFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addFigureButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addFigureButton.Location = new System.Drawing.Point(0, 499);
+            this.addFigureButton.Location = new System.Drawing.Point(0, 445);
             this.addFigureButton.Name = "addFigureButton";
             this.addFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addFigureButton.Size = new System.Drawing.Size(50, 50);
@@ -163,7 +168,12 @@ namespace PaintOOP
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.lineSizeChangeToolStripTextBox,
+            this.toolStripSeparator3,
+            this.colorChangeToolStripButton,
+            this.toolStripSeparator4,
+            this.fillColorChangeToolStripButton});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(1142, 43);
@@ -272,8 +282,7 @@ namespace PaintOOP
             this.lineToolStripButton,
             this.rectangleToolStripButton,
             this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
+            this.toolStripButton5});
             this.instrumentToolStrip.Location = new System.Drawing.Point(0, 43);
             this.instrumentToolStrip.Name = "instrumentToolStrip";
             this.instrumentToolStrip.Size = new System.Drawing.Size(50, 500);
@@ -325,18 +334,54 @@ namespace PaintOOP
             this.toolStripButton5.Size = new System.Drawing.Size(48, 34);
             this.toolStripButton5.Text = "toolStripButton5";
             // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(48, 34);
-            this.toolStripButton6.Text = "toolStripButton6";
-            // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // lineSizeChangeToolStripTextBox
+            // 
+            this.lineSizeChangeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lineSizeChangeToolStripTextBox.Name = "lineSizeChangeToolStripTextBox";
+            this.lineSizeChangeToolStripTextBox.Size = new System.Drawing.Size(40, 43);
+            this.lineSizeChangeToolStripTextBox.Text = "12";
+            this.lineSizeChangeToolStripTextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lineSizeChangeToolStripTextBox.TextChanged += new System.EventHandler(this.fontToolStripTextBox_TextChanged);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
+            // 
+            // colorChangeToolStripButton
+            // 
+            this.colorChangeToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.colorChangeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.colorChangeToolStripButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.colorChangeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("colorChangeToolStripButton.Image")));
+            this.colorChangeToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.colorChangeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colorChangeToolStripButton.Name = "colorChangeToolStripButton";
+            this.colorChangeToolStripButton.Size = new System.Drawing.Size(100, 40);
+            this.colorChangeToolStripButton.Text = "Set line color";
+            this.colorChangeToolStripButton.Click += new System.EventHandler(this.colorChangeToolStripButton_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 43);
+            // 
+            // fillColorChangeToolStripButton
+            // 
+            this.fillColorChangeToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fillColorChangeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillColorChangeToolStripButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.fillColorChangeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("fillColorChangeToolStripButton.Image")));
+            this.fillColorChangeToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.fillColorChangeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fillColorChangeToolStripButton.Name = "fillColorChangeToolStripButton";
+            this.fillColorChangeToolStripButton.Size = new System.Drawing.Size(93, 40);
+            this.fillColorChangeToolStripButton.Text = "Set fill color";
+            this.fillColorChangeToolStripButton.Click += new System.EventHandler(this.fillColorChangeToolStripButton_Click);
             // 
             // Controller
             // 
@@ -381,7 +426,6 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripButton rectangleToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStrip mainToolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -396,6 +440,12 @@ namespace PaintOOP
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.ToolStripTextBox lineSizeChangeToolStripTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton colorChangeToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton fillColorChangeToolStripButton;
     }
 }
 
