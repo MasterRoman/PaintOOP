@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaintOOP.Model
 {
-    abstract class FigureFactory
+    public abstract class FigureFactory
     {
         public abstract IFigure create();
     }
