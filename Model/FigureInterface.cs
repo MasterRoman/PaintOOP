@@ -12,7 +12,7 @@ namespace PaintOOP.Model
         System.Drawing.Color color;
         System.Drawing.Drawing2D.DashStyle style;
     }
-    interface FigureI
+    interface IFigure
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
         LineConfiguration pen { get; set; }
