@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PaintOOP.View;
 using PaintOOP.Model;
 using PaintOOP.Model.FigureModel.ParticularFigure;
+using PaintOOP.Services;
 
 namespace PaintOOP
 {
@@ -18,7 +19,10 @@ namespace PaintOOP
         private List<FigureFactory> factoryList;
         private ListFigure figureList;
         private IFactory curFactory;
+        private IFigure curFigure;
+        private PaintingProperty paintingProperty;
 
+       
         public Controller()
         {
             InitializeComponent();
@@ -29,8 +33,22 @@ namespace PaintOOP
             this.factoryList = new List<FigureFactory>();
             this.figureList = new ListFigure();
             this.curFactory = null;
+            this.curFigure = null;
+            this.paintingProperty = new PaintingProperty();
 
-         //   var lineFactory
+            var color = this.fillColorChangeToolStripButton.BackColor;
+            var brush = this.paintingProperty.brushProperty;
+            brush.color = color;
+
+            var pen = this.paintingProperty.penProperty;
+            pen.color = this.colorChangeToolStripButton.BackColor;
+            var fontSize = this.lineSizeChangeToolStripTextBox.Text.Trim().ToString();
+            pen.width = Int32.Parse(fontSize);
+
+            pen.style = System.Drawing.Drawing2D.DashStyle.Solid;
+
+
+            //   var lineFactory
             var rectFactory = new RectangleFactory();
             //    var ellipseFactory
             //    var poligonFactory
@@ -47,7 +65,9 @@ namespace PaintOOP
 
         private void fontToolStripTextBox_TextChanged(object sender, EventArgs e)
         {
-            //TODO:change line size of current figure
+            var pen = this.paintingProperty.penProperty;
+            var fontSize = this.lineSizeChangeToolStripTextBox.Text.Trim().ToString();
+            pen.width = Int32.Parse(fontSize);
         }
 
         private void colorChangeToolStripButton_Click(object sender, EventArgs e)
@@ -57,7 +77,8 @@ namespace PaintOOP
             // set control backColor
             this.colorChangeToolStripButton.BackColor = colorDialog.Color;
 
-            //TODO: set line color
+            var pen = this.paintingProperty.penProperty;
+            pen.color = this.colorChangeToolStripButton.BackColor;
         }
 
         private void fillColorChangeToolStripButton_Click(object sender, EventArgs e)
@@ -67,7 +88,8 @@ namespace PaintOOP
             // set control backColor
             this.fillColorChangeToolStripButton.BackColor = colorDialog.Color;
 
-            //TODO: set fill color
+            var brush = this.paintingProperty.brushProperty;
+            brush.color = this.fillColorChangeToolStripButton.BackColor;
         }
 
         private void instrumentToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -119,7 +141,9 @@ namespace PaintOOP
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-
+            var points = new Point(e.X, e.Y);
+            this.curFigure = this.curFactory.create(points, this.paintingProperty);
+            
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
