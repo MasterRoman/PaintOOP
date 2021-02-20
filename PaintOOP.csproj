@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Model\FigureModel\FigureFactory.cs" />
     <Compile Include="Model\FigureModel\FigureInterface.cs" />
+    <Compile Include="Model\FigureModel\ParticularFigure\Rectangle.cs" />
     <Compile Include="Model\PaintingModel\PaintingPropertyInterface.cs" />
     <Compile Include="Model\SerializeModel\SerializationInterface.cs" />
     <Compile Include="Program.cs" />

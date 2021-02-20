@@ -138,7 +138,7 @@ namespace PaintOOP
             this.panel.Controls.Add(this.mainToolStrip);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 24);
-            this.panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel.Margin = new System.Windows.Forms.Padding(2);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(872, 403);
             this.panel.TabIndex = 2;
@@ -147,8 +147,8 @@ namespace PaintOOP
             // 
             this.addFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addFigureButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addFigureButton.Location = new System.Drawing.Point(-2, 363);
-            this.addFigureButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addFigureButton.Location = new System.Drawing.Point(-2, 495);
+            this.addFigureButton.Margin = new System.Windows.Forms.Padding(2);
             this.addFigureButton.Name = "addFigureButton";
             this.addFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addFigureButton.Size = new System.Drawing.Size(38, 41);
@@ -161,7 +161,7 @@ namespace PaintOOP
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(40, 35);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(1050, 500);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -398,7 +398,7 @@ namespace PaintOOP
             this.Controls.Add(this.panel);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Controller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
