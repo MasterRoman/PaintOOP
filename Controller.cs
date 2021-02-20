@@ -81,8 +81,7 @@ namespace PaintOOP
 
         private void addFigureButton_Click(object sender, EventArgs e)
         {
-            //TODO: configure button with information from dll
-
+            
             ToolStripButton button = new ToolStripButton();
             button.Text = "NEW";
             button.AutoSize = false;
@@ -93,6 +92,10 @@ namespace PaintOOP
 
             button.ImageTransparentColor = Color.Magenta;
 
+            //TODO: configure button with information from dll
+
+            //add factory of new figure to list 
+            //this.factoryList.Add();
 
             this.instrumentToolStrip.Items.Add(button);
         }
