@@ -151,11 +151,10 @@ namespace PaintOOP
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-
             var points = new Point(e.X, e.Y);
-            this.curFigure = this.curFactory.create(points, this.paintingProperty);
-            if (this.curFigure != null)
+            if (this.curFactory != null)
             {
+                this.curFigure = this.curFactory.create(points, this.paintingProperty);
                 this.figureList.Add(this.curFigure);
             }
         }
