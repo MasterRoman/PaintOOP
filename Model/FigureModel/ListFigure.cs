@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PaintOOP.Model
 {
-    class ListFigure : List<IFigure>
+    public class ListFigure : List<IFigure> 
     {
 
         public List<IFigure> undoFigures { get;}
