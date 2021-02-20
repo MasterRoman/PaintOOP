@@ -67,5 +67,23 @@ namespace PaintOOP
             //TODO: set particular figure!!!
 
         }
+
+        private void addFigureButton_Click(object sender, EventArgs e)
+        {
+            //TODO: configure button with information from dll
+
+            ToolStripButton button = new ToolStripButton();
+            button.Text = "NEW";
+            button.AutoSize = false;
+            button.Size = new Size(36, 34);
+            button.DisplayStyle = ToolStripItemDisplayStyle.Text;
+
+            //button.Image = ((System.Drawing.Image)(resources.GetObject("pointerToolStripButton.Image")));
+
+            button.ImageTransparentColor = Color.Magenta;
+
+
+            this.instrumentToolStrip.Items.Add(button);
+        }
     }
 }
