@@ -9,7 +9,7 @@ using PaintOOP.Model.PaintingModel;
 namespace PaintOOP.Model
 {
    
-    interface IFigure
+    public interface IFigure
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
         LineConfiguration pen { get; set; }
