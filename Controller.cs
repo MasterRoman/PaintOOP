@@ -115,6 +115,21 @@ namespace PaintOOP
             this.instrumentToolStrip.Items.Add(button);
         }
 
-       
+        //mouse events 
+
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
