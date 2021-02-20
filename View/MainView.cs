@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using PaintOOP.Model;
 
 namespace PaintOOP.View
 {
@@ -15,9 +16,12 @@ namespace PaintOOP.View
             e.Graphics.FillRectangle(brush, x, y,width,height);
         }
 
-        public static void drawFigures(System.Windows.Forms.PaintEventArgs e) //will complete after declare model
+        public static void drawFigures(System.Windows.Forms.PaintEventArgs e, ListFigure figures) //will complete after declare model
         {
-
+            foreach (IFigure figure in figures)
+            {
+                figure.drawFigure(e);
+            }
         }
 
         public static void drawVertexOnSelectedFigures(System.Windows.Forms.PaintEventArgs e,Point points,Color color) // will complete later
