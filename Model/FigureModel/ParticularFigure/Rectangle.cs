@@ -37,4 +37,13 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 
         }
     }
+
+
+    public class RectangleFactory : FigureFactory
+    {
+        public override IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty)
+        {
+            return new Rectangle(points,paintingProperty);
+        }
+    }
 }
