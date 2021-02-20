@@ -40,12 +40,16 @@ namespace PaintOOP
             var brush = this.paintingProperty.brushProperty;
             brush.color = color;
 
+            this.paintingProperty.brushProperty = brush;
+
             var pen = this.paintingProperty.penProperty;
             pen.color = this.colorChangeToolStripButton.BackColor;
             var fontSize = this.lineSizeChangeToolStripTextBox.Text.Trim().ToString();
             pen.width = Int32.Parse(fontSize);
 
             pen.style = System.Drawing.Drawing2D.DashStyle.Solid;
+
+            this.paintingProperty.penProperty = pen;
 
 
             //   var lineFactory
@@ -68,6 +72,8 @@ namespace PaintOOP
             var pen = this.paintingProperty.penProperty;
             var fontSize = this.lineSizeChangeToolStripTextBox.Text.Trim().ToString();
             pen.width = Int32.Parse(fontSize);
+
+            this.paintingProperty.penProperty = pen;
         }
 
         private void colorChangeToolStripButton_Click(object sender, EventArgs e)
@@ -79,6 +85,8 @@ namespace PaintOOP
 
             var pen = this.paintingProperty.penProperty;
             pen.color = this.colorChangeToolStripButton.BackColor;
+
+            this.paintingProperty.penProperty = pen;
         }
 
         private void fillColorChangeToolStripButton_Click(object sender, EventArgs e)
@@ -90,6 +98,8 @@ namespace PaintOOP
 
             var brush = this.paintingProperty.brushProperty;
             brush.color = this.fillColorChangeToolStripButton.BackColor;
+
+            this.paintingProperty.brushProperty = brush;
         }
 
         private void instrumentToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -143,17 +153,45 @@ namespace PaintOOP
         {
             var points = new Point(e.X, e.Y);
             this.curFigure = this.curFactory.create(points, this.paintingProperty);
-            
+            this.figureList.Add(this.curFigure);
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
+            if (this.curFigure != null)
+            {
+                if (this.curFigure.isClosed)
+                {
+                    ClosedFigure figure = (ClosedFigure)this.curFigure;
+                    var points = new Point(e.X, e.Y);
+                    figure.bottomRightCoords = points;
+
+
+
+                }
+                this.pictureBox.Invalidate();
+
+
+            }
 
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
+            if (this.curFigure != null)
+            {
+                if (this.curFigure.isClosed)
+                {
+                    ClosedFigure figure = (ClosedFigure)this.curFigure;
+                    var points = new Point(e.X, e.Y);
+                    figure.bottomRightCoords = points;
+                }
 
+                this.curFigure = null;
+            }
+
+            
+            this.pictureBox.Invalidate();
         }
     }
 }
