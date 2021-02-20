@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace PaintOOP.Model.SerializeModel
 {
-    interface SerializationInterface
+    interface ISerialization
     {
+        void serialize(IFigure figure);
+        IFigure deserialize();
+
+        string filePath { get; set; }
+
     }
 }
