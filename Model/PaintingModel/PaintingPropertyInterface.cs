@@ -9,13 +9,13 @@ namespace PaintOOP.Model.PaintingModel
 
     public struct LineConfiguration
     {
-        int width;
-        System.Drawing.Color color;
-        System.Drawing.Drawing2D.DashStyle style;
+        public int width;
+        public System.Drawing.Color color;
+        public System.Drawing.Drawing2D.DashStyle style;
     }
     public struct FillConfiguration
     {
-        System.Drawing.Color color;
+        public System.Drawing.Color color;
     }
 
     public interface IPaintingProperty
