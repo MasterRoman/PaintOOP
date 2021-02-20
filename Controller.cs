@@ -8,20 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PaintOOP.View;
+using PaintOOP.Model;
 
 namespace PaintOOP
 {
     public partial class Controller : Form
     {
+        private List<FigureFactory> factoryList;
+        private ListFigure figureList;
+
         public Controller()
         {
             InitializeComponent();
         }
 
+        private void Controller_Load(object sender, EventArgs e)
+        {
+            this.factoryList = new List<FigureFactory>();
+            this.figureList = new ListFigure();
+            
+        }
+
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             MainView.cleanScreen(e, 0, 0,this.pictureBox.Height, this.pictureBox.Width);
-            MainView.drawFigures(e); //will complete
+            MainView.drawFigures(e,this.figureList); //will complete
 
         }
 
@@ -85,5 +96,7 @@ namespace PaintOOP
 
             this.instrumentToolStrip.Items.Add(button);
         }
+
+       
     }
 }
