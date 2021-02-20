@@ -29,11 +29,23 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             pen.Width = this.pen.width;
             pen.DashStyle = this.pen.style;
 
+            System.Drawing.Brush brush = new System.Drawing.SolidBrush(this.brush.color);
+
+
+            int width = Math.Abs(this.topLeftCoords.X - this.bottomRightCoords.X);
+            int height = Math.Abs(this.topLeftCoords.Y - this.bottomRightCoords.Y);
+
+            e.Graphics.FillRectangle(brush,
+                                    this.topLeftCoords.X,
+                                    this.topLeftCoords.Y,
+                                    width,
+                                    height);
+
             e.Graphics.DrawRectangle(pen,
                                     this.topLeftCoords.X,
                                     this.topLeftCoords.Y,
-                                    Math.Abs(this.topLeftCoords.X - this.bottomRightCoords.X),
-                                    Math.Abs(this.topLeftCoords.Y - this.bottomRightCoords.Y));
+                                    width,
+                                    height);
 
         }
     }
