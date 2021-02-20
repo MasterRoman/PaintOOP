@@ -7,7 +7,13 @@ using PaintOOP.Model.PaintingModel;
 
 namespace PaintOOP.Model
 {
-    public abstract class FigureFactory
+    public interface IFactory
+    {
+        IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty);
+
+    }
+
+    public abstract class FigureFactory : IFactory
     {
         public abstract IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty);
     }
