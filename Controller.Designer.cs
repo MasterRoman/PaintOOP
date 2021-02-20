@@ -167,6 +167,7 @@ namespace PaintOOP
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Tag = "0";
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             // 
             // instrumentToolStrip
@@ -196,6 +197,7 @@ namespace PaintOOP
             this.pointerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pointerToolStripButton.Name = "pointerToolStripButton";
             this.pointerToolStripButton.Size = new System.Drawing.Size(36, 34);
+            this.pointerToolStripButton.Tag = "-1";
             this.pointerToolStripButton.Text = "toolStripButton1";
             // 
             // lineToolStripButton
@@ -205,6 +207,7 @@ namespace PaintOOP
             this.lineToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.lineToolStripButton.Name = "lineToolStripButton";
             this.lineToolStripButton.Size = new System.Drawing.Size(36, 34);
+            this.lineToolStripButton.Tag = "0";
             this.lineToolStripButton.Text = "toolStripButton2";
             // 
             // rectangleToolStripButton
@@ -214,6 +217,7 @@ namespace PaintOOP
             this.rectangleToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.rectangleToolStripButton.Name = "rectangleToolStripButton";
             this.rectangleToolStripButton.Size = new System.Drawing.Size(36, 34);
+            this.rectangleToolStripButton.Tag = "2";
             this.rectangleToolStripButton.Text = "toolStripButton3";
             // 
             // toolStripButton4
@@ -223,6 +227,7 @@ namespace PaintOOP
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(36, 34);
+            this.toolStripButton4.Tag = "3";
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // toolStripButton5
@@ -232,6 +237,7 @@ namespace PaintOOP
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(36, 34);
+            this.toolStripButton5.Tag = "4";
             this.toolStripButton5.Text = "toolStripButton5";
             // 
             // mainToolStrip

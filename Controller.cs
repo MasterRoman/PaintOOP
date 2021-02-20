@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PaintOOP.View;
 using PaintOOP.Model;
+using PaintOOP.Model.FigureModel.ParticularFigure;
 
 namespace PaintOOP
 {
@@ -16,6 +17,7 @@ namespace PaintOOP
     {
         private List<FigureFactory> factoryList;
         private ListFigure figureList;
+        private IFactory curFactory;
 
         public Controller()
         {
@@ -26,7 +28,14 @@ namespace PaintOOP
         {
             this.factoryList = new List<FigureFactory>();
             this.figureList = new ListFigure();
-            
+            this.curFactory = null;
+
+         //   var lineFactory
+            var rectFactory = new RectangleFactory();
+            //    var ellipseFactory
+            //    var poligonFactory
+
+            this.factoryList.Add(rectFactory);
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
@@ -68,6 +77,12 @@ namespace PaintOOP
                 if (item == e.ClickedItem)
                 {
                     item.CheckState = CheckState.Checked;
+                    this.curFactory = this.factoryList[0];
+                    // commented because not all particular classes are completed 
+                    //if ((int)item.Tag < this.factoryList.Count)
+                    //{
+                    //    this.curFactory = this.factoryList[(int)item.Tag];
+                    //}
                 }
                 else
                 {
@@ -87,7 +102,7 @@ namespace PaintOOP
             button.AutoSize = false;
             button.Size = new Size(36, 34);
             button.DisplayStyle = ToolStripItemDisplayStyle.Text;
-
+            button.Tag = this.factoryList.Count;
             //button.Image = ((System.Drawing.Image)(resources.GetObject("pointerToolStripButton.Image")));
 
             button.ImageTransparentColor = Color.Magenta;
