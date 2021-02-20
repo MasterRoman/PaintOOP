@@ -18,7 +18,7 @@ namespace PaintOOP.Model.PaintingModel
         System.Drawing.Color color;
     }
 
-    interface IPaintingProperty
+    public interface IPaintingProperty
     {
         LineConfiguration penProperty { get; set; }
         FillConfiguration brushProperty { get; set; }
