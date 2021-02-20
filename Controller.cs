@@ -151,9 +151,13 @@ namespace PaintOOP
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
+
             var points = new Point(e.X, e.Y);
             this.curFigure = this.curFactory.create(points, this.paintingProperty);
-            this.figureList.Add(this.curFigure);
+            if (this.curFigure != null)
+            {
+                this.figureList.Add(this.curFigure);
+            }
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
