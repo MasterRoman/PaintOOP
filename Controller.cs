@@ -196,5 +196,6 @@ namespace PaintOOP
             
             this.pictureBox.Invalidate();
         }
+      
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PaintOOP.Model.PaintingModel;
+using PaintOOP.Services;
 
 namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
@@ -31,21 +32,11 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 
             System.Drawing.Brush brush = new System.Drawing.SolidBrush(this.brush.color);
 
+            System.Drawing.Rectangle rect = Helper.makeCoordsForDrawing(this.topLeftCoords,this.bottomRightCoords);
 
-            int width = Math.Abs(this.topLeftCoords.X - this.bottomRightCoords.X);
-            int height = Math.Abs(this.topLeftCoords.Y - this.bottomRightCoords.Y);
+            e.Graphics.FillRectangle(brush,rect);
 
-            e.Graphics.FillRectangle(brush,
-                                    this.topLeftCoords.X,
-                                    this.topLeftCoords.Y,
-                                    width,
-                                    height);
-
-            e.Graphics.DrawRectangle(pen,
-                                    this.topLeftCoords.X,
-                                    this.topLeftCoords.Y,
-                                    width,
-                                    height);
+            e.Graphics.DrawRectangle(pen,rect);
 
         }
     }
