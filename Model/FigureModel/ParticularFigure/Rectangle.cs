@@ -14,7 +14,7 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 
         public Rectangle(System.Drawing.Point points,IPaintingProperty paintingProperty)
         {
-            this.isClosed = true;
+
             this.pen = paintingProperty.penProperty;
             this.brush = paintingProperty.brushProperty;
             
