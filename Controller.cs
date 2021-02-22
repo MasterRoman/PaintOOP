@@ -55,11 +55,12 @@ namespace PaintOOP
             var lineFactory = new LineFactory();
             var rectFactory = new RectangleFactory();
             var ellipseFactory = new EllipseFactory();
-            //    var poligonFactory
+            var poligonFactory = new PolygonFactory();
 
             this.factoryList.Add(lineFactory);
             this.factoryList.Add(rectFactory);
             this.factoryList.Add(ellipseFactory);
+            this.factoryList.Add(poligonFactory);
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
@@ -164,15 +165,31 @@ namespace PaintOOP
                 }
                 else if (this.curFigure.Equals(this.figureList.Last()))
                 {
-                    OpenedFigure figure = (OpenedFigure)this.curFigure;
-                    if (e.Button == MouseButtons.Right)
+                    if (this.curFigure is OpenedFigure)
                     {
-                        figure.points.RemoveAt(figure.points.Count - 1);
-                        this.curFigure = null;
-                    } 
+                        OpenedFigure figure = (OpenedFigure)this.curFigure;
+                        if (e.Button == MouseButtons.Right)
+                        {
+                            figure.points.RemoveAt(figure.points.Count - 1);
+                            this.curFigure = null;
+                        }
+                        else
+                        {
+                            figure.addPoints(points);
+                        }
+                    }
                     else
-                    { 
-                        figure.addPoints(points);
+                    {
+                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
+                        if (e.Button == MouseButtons.Right)
+                        {
+                            figure.closeFigure();
+                            this.curFigure = null;
+                        }
+                        else
+                        {
+                            figure.addPoints(points);
+                        }
                     }
                 }
 
@@ -191,8 +208,16 @@ namespace PaintOOP
                 }
                 else
                 {
-                    OpenedFigure figure = (OpenedFigure)this.curFigure;
-                    figure.points[figure.points.Count - 1] = points;
+                    if (this.curFigure is OpenedFigure)
+                    {
+                        OpenedFigure figure = (OpenedFigure)this.curFigure;
+                        figure.points[figure.points.Count - 1] = points;
+                    }
+                    else
+                    {
+                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
+                        figure.points[figure.points.Count - 1] = points;
+                    }
                     
                 }
                 this.pictureBox.Invalidate();

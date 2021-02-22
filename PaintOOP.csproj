@@ -56,6 +56,7 @@
     <Compile Include="Model\FigureModel\FigureInterface.cs" />
     <Compile Include="Model\FigureModel\ParticularFigure\Ellipse.cs" />
     <Compile Include="Model\FigureModel\ParticularFigure\Line.cs" />
+    <Compile Include="Model\FigureModel\ParticularFigure\Polygon.cs" />
     <Compile Include="Model\FigureModel\ParticularFigure\Rectangle.cs" />
     <Compile Include="Model\PaintingModel\PaintingPropertyInterface.cs" />
     <Compile Include="Model\SerializeModel\SerializationInterface.cs" />

@@ -37,4 +37,14 @@ namespace PaintOOP.Model
         public FillConfiguration brush { get; set;}
     }
 
+    public abstract class OpenClosedFigure : Figure
+    {
+        public FillConfiguration brush { get; set; }
+        public List<System.Drawing.Point> points { get; set; }
+        public abstract void addPoints(System.Drawing.Point points);
+
+        public abstract void closeFigure();
+
+    }
+
 }
