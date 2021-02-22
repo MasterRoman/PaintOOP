@@ -54,10 +54,11 @@ namespace PaintOOP
 
             //   var lineFactory
             var rectFactory = new RectangleFactory();
-            //    var ellipseFactory
+            var ellipseFactory = new EllipseFactory();
             //    var poligonFactory
 
             this.factoryList.Add(rectFactory);
+            this.factoryList.Add(ellipseFactory);
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
@@ -109,7 +110,7 @@ namespace PaintOOP
                 if (item == e.ClickedItem)
                 {
                     item.CheckState = CheckState.Checked;
-                    this.curFactory = this.factoryList[0];
+                    this.curFactory = this.factoryList[1];
                     // commented because not all particular classes are completed 
                     //if ((int)item.Tag < this.factoryList.Count)
                     //{
