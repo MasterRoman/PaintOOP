@@ -52,11 +52,12 @@ namespace PaintOOP
             this.paintingProperty.penProperty = pen;
 
 
-            //   var lineFactory
+            var lineFactory = new LineFactory();
             var rectFactory = new RectangleFactory();
             var ellipseFactory = new EllipseFactory();
             //    var poligonFactory
 
+            this.factoryList.Add(lineFactory);
             this.factoryList.Add(rectFactory);
             this.factoryList.Add(ellipseFactory);
         }
@@ -110,7 +111,7 @@ namespace PaintOOP
                 if (item == e.ClickedItem)
                 {
                     item.CheckState = CheckState.Checked;
-                    this.curFactory = this.factoryList[1];
+                    this.curFactory = this.factoryList[0];
                     // commented because not all particular classes are completed 
                     //if ((int)item.Tag < this.factoryList.Count)
                     //{
@@ -152,11 +153,28 @@ namespace PaintOOP
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            var points = new Point(e.X, e.Y);
             if (this.curFactory != null)
             {
-                this.curFigure = this.curFactory.create(points, this.paintingProperty);
-                this.figureList.Add(this.curFigure);
+                var points = new Point(e.X, e.Y);
+                if (this.curFigure == null)
+                {
+                    this.curFigure = this.curFactory.create(points, this.paintingProperty);
+                    this.figureList.Add(this.curFigure);
+
+                }
+                else if (this.curFigure.Equals(this.figureList.Last()))
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        this.curFigure = null;
+                    } 
+                    else
+                    { 
+                    OpenedFigure figure = (OpenedFigure)this.curFigure;
+                    figure.addPoints(points);
+                    }
+                }
+
             }
         }
 
@@ -189,9 +207,10 @@ namespace PaintOOP
                     ClosedFigure figure = (ClosedFigure)this.curFigure;
                     var points = new Point(e.X, e.Y);
                     figure.bottomRightCoords = points;
+                    this.curFigure = null;
                 }
 
-                this.curFigure = null;
+                
             }
 
             
