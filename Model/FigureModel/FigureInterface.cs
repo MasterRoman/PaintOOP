@@ -36,7 +36,7 @@ namespace PaintOOP.Model
             }
         }
         public List<System.Drawing.Point> points { get; set; }
-
+        public abstract void addPoints(System.Drawing.Point points);
     }
 
     public abstract class ClosedFigure : Figure
