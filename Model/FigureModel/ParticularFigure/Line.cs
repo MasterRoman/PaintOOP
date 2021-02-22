@@ -17,6 +17,9 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             this.points = new List<System.Drawing.Point>();
             this.points.Add(points);
 
+            System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X,points.Y);
+            this.points.Add(temporaryPoints);
+
         }
 
         public override void drawFigure(PaintEventArgs e)
