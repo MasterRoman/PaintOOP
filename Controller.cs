@@ -184,7 +184,7 @@ namespace PaintOOP
             if (this.curFigure != null)
             {
                 var points = new Point(e.X, e.Y);
-                if (this.curFigure.isClosed)
+                if (this.curFigure is ClosedFigure)
                 {
                     ClosedFigure figure = (ClosedFigure)this.curFigure;
                     figure.bottomRightCoords = points;
@@ -206,7 +206,7 @@ namespace PaintOOP
         {
             if (this.curFigure != null)
             {
-                if (this.curFigure.isClosed)
+                if (this.curFigure is ClosedFigure)
                 {
                     ClosedFigure figure = (ClosedFigure)this.curFigure;
                     var points = new Point(e.X, e.Y);

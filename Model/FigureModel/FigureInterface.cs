@@ -13,7 +13,6 @@ namespace PaintOOP.Model
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
         LineConfiguration pen { get; set; }
-        bool isClosed { get; }
     }
 
     public abstract class Figure : IFigure
@@ -23,18 +22,10 @@ namespace PaintOOP.Model
 
         }
         public LineConfiguration pen { get; set; }
-        public virtual bool isClosed { get; }
     }
 
     public abstract class OpenedFigure : Figure
     {
-        public override bool isClosed
-        {
-            get
-            {
-                return false;
-            }
-        }
         public List<System.Drawing.Point> points { get; set; }
         public abstract void addPoints(System.Drawing.Point points);
     }
@@ -44,14 +35,6 @@ namespace PaintOOP.Model
         public System.Drawing.Point topLeftCoords { get; set; }
         public System.Drawing.Point bottomRightCoords { get; set; }
         public FillConfiguration brush { get; set;}
-
-        public override bool isClosed
-        {
-            get
-            {
-                return true;
-            }
-        }
     }
 
 }
