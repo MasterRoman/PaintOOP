@@ -164,14 +164,15 @@ namespace PaintOOP
                 }
                 else if (this.curFigure.Equals(this.figureList.Last()))
                 {
+                    OpenedFigure figure = (OpenedFigure)this.curFigure;
                     if (e.Button == MouseButtons.Right)
                     {
+                        figure.points.RemoveAt(figure.points.Count - 1);
                         this.curFigure = null;
                     } 
                     else
                     { 
-                    OpenedFigure figure = (OpenedFigure)this.curFigure;
-                    figure.addPoints(points);
+                        figure.addPoints(points);
                     }
                 }
 
@@ -182,14 +183,17 @@ namespace PaintOOP
         {
             if (this.curFigure != null)
             {
+                var points = new Point(e.X, e.Y);
                 if (this.curFigure.isClosed)
                 {
                     ClosedFigure figure = (ClosedFigure)this.curFigure;
-                    var points = new Point(e.X, e.Y);
                     figure.bottomRightCoords = points;
-
-
-
+                }
+                else
+                {
+                    OpenedFigure figure = (OpenedFigure)this.curFigure;
+                    figure.points[figure.points.Count - 1] = points;
+                    
                 }
                 this.pictureBox.Invalidate();
 
@@ -209,6 +213,7 @@ namespace PaintOOP
                     figure.bottomRightCoords = points;
                     this.curFigure = null;
                 }
+            
 
                 
             }
