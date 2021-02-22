@@ -356,7 +356,7 @@ namespace PaintOOP
             this.lineSizeChangeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lineSizeChangeToolStripTextBox.Name = "lineSizeChangeToolStripTextBox";
             this.lineSizeChangeToolStripTextBox.Size = new System.Drawing.Size(40, 43);
-            this.lineSizeChangeToolStripTextBox.Text = "12";
+            this.lineSizeChangeToolStripTextBox.Text = "6";
             this.lineSizeChangeToolStripTextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lineSizeChangeToolStripTextBox.TextChanged += new System.EventHandler(this.fontToolStripTextBox_TextChanged);
             // 

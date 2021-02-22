@@ -159,18 +159,18 @@ namespace PaintOOP
                 var points = new Point(e.X, e.Y);
                 if (this.curFigure == null)
                 {
-                    this.curFigure = this.curFactory.create(points, this.paintingProperty);
-                    this.figureList.Add(this.curFigure);
+                    this.curFigure = this.curFactory.create(points, this.paintingProperty);   
+                    this.figureList.Add(this.curFigure);                                      //adding new figure
 
                 }
-                else if (this.curFigure.Equals(this.figureList.Last()))
+                else if (this.curFigure.Equals(this.figureList.Last())) //continue drawing 
                 {
                     if (this.curFigure is OpenedFigure)
                     {
                         OpenedFigure figure = (OpenedFigure)this.curFigure;
                         if (e.Button == MouseButtons.Right)
                         {
-                            figure.points.RemoveAt(figure.points.Count - 1);
+                            figure.points.RemoveAt(figure.points.Count - 1);  //TODO: refactor this
                             this.curFigure = null;
                         }
                         else
@@ -201,13 +201,13 @@ namespace PaintOOP
             if (this.curFigure != null)
             {
                 var points = new Point(e.X, e.Y);
-                if (this.curFigure is ClosedFigure)
+                if (this.curFigure is ClosedFigure)   //preview of closed figures
                 {
                     ClosedFigure figure = (ClosedFigure)this.curFigure;
                     figure.bottomRightCoords = points;
                 }
-                else
-                {
+                else  
+                {                                     //preview of open and openClosed figures
                     if (this.curFigure is OpenedFigure)
                     {
                         OpenedFigure figure = (OpenedFigure)this.curFigure;
