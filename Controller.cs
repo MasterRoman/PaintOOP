@@ -112,11 +112,11 @@ namespace PaintOOP
                 {
                     item.CheckState = CheckState.Checked;
                     this.curFactory = this.factoryList[0];
-                    // commented because not all particular classes are completed 
-                    //if ((int)item.Tag < this.factoryList.Count)
-                    //{
-                    //    this.curFactory = this.factoryList[(int)item.Tag];
-                    //}
+                    int number = Int32.Parse(item.Tag.ToString());
+                    if (number < this.factoryList.Count && number > 0)
+                    {
+                        this.curFactory = this.factoryList[number];
+                    }
                 }
                 else
                 {
@@ -124,7 +124,7 @@ namespace PaintOOP
                 }
             }
 
-            //TODO: set particular figure!!!
+ 
 
         }
 
