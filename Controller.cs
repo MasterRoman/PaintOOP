@@ -156,6 +156,12 @@ namespace PaintOOP
         {
             if (this.curFactory != null)
             {
+                this.undoToolStripButton.Enabled = true;
+                if (this.redoToolStripButton.Enabled)
+                {
+                    this.figureList.setRedoNil();
+                    this.redoToolStripButton.Enabled = false;
+                }
                 var points = new Point(e.X, e.Y);
                 if (this.curFigure == null)
                 {
@@ -260,6 +266,27 @@ namespace PaintOOP
             
             this.pictureBox.Invalidate();
         }
-      
+
+        private void undoToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.figureList.undo();
+            if (this.figureList.Count == 0)
+            {
+                this.undoToolStripButton.Enabled = false;
+            }
+            this.redoToolStripButton.Enabled = true;
+            this.pictureBox.Invalidate();
+        }
+
+        private void redoToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.figureList.redo();
+            if (this.figureList.undoFigures.Count == 0)
+            {
+                this.redoToolStripButton.Enabled = false;
+                this.undoToolStripButton.Enabled = true;
+            }
+            this.pictureBox.Invalidate();
+        }
     }
 }
