@@ -8,7 +8,7 @@ using PaintOOP.Model.PaintingModel;
 
 namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
-    public class Line : OpenedFigure
+    public class Line : DynamicFigure
     {
         public Line(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
@@ -33,13 +33,13 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             
         }
 
-        public override void addPoints(System.Drawing.Point points)
+        public override void closeFigure()
         {
-            this.points.Add(points);
+
         }
-        
-    
-    
+
+
+
     }
 
 

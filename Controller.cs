@@ -22,7 +22,7 @@ namespace PaintOOP
         private IFigure curFigure;
         private PaintingProperty paintingProperty;
 
-       
+
         public Controller()
         {
             InitializeComponent();
@@ -65,8 +65,8 @@ namespace PaintOOP
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
-            MainView.cleanScreen(e, 0, 0,this.pictureBox.Height, this.pictureBox.Width);
-            MainView.drawFigures(e,this.figureList); //will complete
+            MainView.cleanScreen(e, 0, 0, this.pictureBox.Height, this.pictureBox.Width);
+            MainView.drawFigures(e, this.figureList); //will complete
 
         }
 
@@ -124,14 +124,11 @@ namespace PaintOOP
                     item.CheckState = CheckState.Unchecked;
                 }
             }
-
- 
-
         }
 
         private void addFigureButton_Click(object sender, EventArgs e)
         {
-            
+
             ToolStripButton button = new ToolStripButton();
             button.Text = "NEW";
             button.AutoSize = false;
@@ -168,38 +165,20 @@ namespace PaintOOP
                     this.curFigure = this.curFactory.create(points, this.paintingProperty);
                     this.figureList.Add(this.curFigure);                                      //adding new figure
 
-                    if (curFigure is OpenedFigure)
+                    if (curFigure is DynamicFigure)
                     {
                         System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
-                        OpenedFigure figure = (OpenedFigure)this.curFigure;
-                        figure.points.Add(temporaryPoints);
-                    }
-                    else if (curFigure is OpenClosedFigure)
-                    {
-                        System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
-                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
+                        DynamicFigure figure = (DynamicFigure)this.curFigure;
                         figure.points.Add(temporaryPoints);
                     }
 
                 }
                 else if (this.curFigure.Equals(this.figureList.Last())) //continue drawing 
-                {
-                    if (this.curFigure is OpenedFigure)
+
+                    if (this.curFigure is DynamicFigure)
                     {
-                        OpenedFigure figure = (OpenedFigure)this.curFigure;
-                        if (e.Button == MouseButtons.Right)
-                        {
-                            figure.points.RemoveAt(figure.points.Count - 1);  
-                            this.curFigure = null;
-                        }
-                        else
-                        {
-                            figure.addPoints(points);
-                        }
-                    }
-                    else
-                    {
-                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
+
+                        DynamicFigure figure = (DynamicFigure)this.curFigure;
                         if (e.Button == MouseButtons.Right)
                         {
                             figure.points.RemoveAt(figure.points.Count - 1);
@@ -210,9 +189,8 @@ namespace PaintOOP
                         {
                             figure.addPoints(points);
                         }
-                    }
-                }
 
+                    }
             }
         }
 
@@ -221,28 +199,17 @@ namespace PaintOOP
             if (this.curFigure != null)
             {
                 var points = new Point(e.X, e.Y);
-                if (this.curFigure is ClosedFigure)   //preview of closed figures
+                if (this.curFigure is StaticFigure)   //preview of closed figures
                 {
-                    ClosedFigure figure = (ClosedFigure)this.curFigure;
+                    StaticFigure figure = (StaticFigure)this.curFigure;
                     figure.bottomRightCoords = points;
                 }
-                else  
+                else
                 {                                     //preview of open and openClosed figures
-                    if (this.curFigure is OpenedFigure)
-                    {
-                        OpenedFigure figure = (OpenedFigure)this.curFigure;
-                        figure.points[figure.points.Count - 1] = points;
-                    }
-                    else
-                    {
-                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
-                        figure.points[figure.points.Count - 1] = points;
-                    }
-                    
+                    DynamicFigure figure = (DynamicFigure)this.curFigure;
+                    figure.points[figure.points.Count - 1] = points;
                 }
                 this.pictureBox.Invalidate();
-
-
             }
 
         }
@@ -251,19 +218,14 @@ namespace PaintOOP
         {
             if (this.curFigure != null)
             {
-                if (this.curFigure is ClosedFigure)
+                if (this.curFigure is StaticFigure)
                 {
-                    ClosedFigure figure = (ClosedFigure)this.curFigure;
+                    StaticFigure figure = (StaticFigure)this.curFigure;
                     var points = new Point(e.X, e.Y);
                     figure.bottomRightCoords = points;
                     this.curFigure = null;
                 }
-            
-
-                
             }
-
-            
             this.pictureBox.Invalidate();
         }
 

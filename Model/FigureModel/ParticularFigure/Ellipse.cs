@@ -9,7 +9,7 @@ using PaintOOP.Services;
 
 namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
-    class Ellipse : ClosedFigure
+    class Ellipse : StaticFigure
     {
 
         public Ellipse(System.Drawing.Point points, IPaintingProperty paintingProperty)

@@ -9,7 +9,7 @@ using PaintOOP.Services;
 
 namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
-    public class Rectangle : ClosedFigure
+    public class Rectangle : StaticFigure
     {
 
         public Rectangle(System.Drawing.Point points,IPaintingProperty paintingProperty)

@@ -9,7 +9,7 @@ using PaintOOP.Model.PaintingModel;
 
 namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
-    public class Polygon : OpenClosedFigure
+    public class Polygon : DynamicFigure
     {
         public Polygon(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
@@ -28,10 +28,6 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             this.points.Add(endPoints);
         }
 
-        public override void addPoints(Point points)
-        {
-            this.points.Add(points);
-        }
 
         public override void drawFigure(PaintEventArgs e)
         {
