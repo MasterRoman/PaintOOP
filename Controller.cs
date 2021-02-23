@@ -172,7 +172,7 @@ namespace PaintOOP
                    
                     this.curFigure.addPoints(points);
                 }
-                else if (e.Button == MouseButtons.Right)
+                else if (this.curFigure != null && e.Button == MouseButtons.Right)
                 {
 
                     this.curFigure.addPoints(points);          
