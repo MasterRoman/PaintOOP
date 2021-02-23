@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaintOOP.Model.SerializeModel
 {
-    interface ISerialization
+    interface ISerialization<TFigure> where TFigure : IFigure
     {
         void serialize(IFigure figure);
         IFigure deserialize();
