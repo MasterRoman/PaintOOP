@@ -18,7 +18,7 @@ namespace PaintOOP
     {
         private List<FigureFactory> factoryList;
         private ListFigure figureList;
-        private IFactory curFactory;
+        private IFactory<IFigure> curFactory;
         private IFigure curFigure;
         private PaintingProperty paintingProperty;
 
@@ -182,6 +182,7 @@ namespace PaintOOP
                         if (e.Button == MouseButtons.Right)
                         {
                             figure.points.RemoveAt(figure.points.Count - 1);
+                            figure.addPoints(points);
                             figure.closeFigure();
                             this.curFigure = null;
                         }
