@@ -20,14 +20,11 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             this.points = new List<System.Drawing.Point>();
             this.points.Add(points);
 
-            System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
-            this.points.Add(temporaryPoints);
         }
 
         public override void closeFigure()
         {
             System.Drawing.Point endPoints = new System.Drawing.Point(this.points[0].X, this.points[0].Y);
-            this.points.RemoveAt(points.Count - 1);
             this.points.Add(endPoints);
         }
 

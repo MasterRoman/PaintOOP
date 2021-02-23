@@ -159,8 +159,21 @@ namespace PaintOOP
                 var points = new Point(e.X, e.Y);
                 if (this.curFigure == null)
                 {
-                    this.curFigure = this.curFactory.create(points, this.paintingProperty);   
+                    this.curFigure = this.curFactory.create(points, this.paintingProperty);
                     this.figureList.Add(this.curFigure);                                      //adding new figure
+
+                    if (curFigure is OpenedFigure)
+                    {
+                        System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
+                        OpenedFigure figure = (OpenedFigure)this.curFigure;
+                        figure.points.Add(temporaryPoints);
+                    }
+                    else if (curFigure is OpenClosedFigure)
+                    {
+                        System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
+                        OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
+                        figure.points.Add(temporaryPoints);
+                    }
 
                 }
                 else if (this.curFigure.Equals(this.figureList.Last())) //continue drawing 
@@ -170,7 +183,7 @@ namespace PaintOOP
                         OpenedFigure figure = (OpenedFigure)this.curFigure;
                         if (e.Button == MouseButtons.Right)
                         {
-                            figure.points.RemoveAt(figure.points.Count - 1);  //TODO: refactor this
+                            figure.points.RemoveAt(figure.points.Count - 1);  
                             this.curFigure = null;
                         }
                         else
@@ -183,6 +196,7 @@ namespace PaintOOP
                         OpenClosedFigure figure = (OpenClosedFigure)this.curFigure;
                         if (e.Button == MouseButtons.Right)
                         {
+                            figure.points.RemoveAt(figure.points.Count - 1);
                             figure.closeFigure();
                             this.curFigure = null;
                         }
