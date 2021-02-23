@@ -39,6 +39,7 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             e.Graphics.DrawEllipse(pen, rect);
 
         }
+
     }
 
 

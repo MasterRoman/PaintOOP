@@ -159,40 +159,30 @@ namespace PaintOOP
                     this.figureList.setRedoNil();
                     this.redoToolStripButton.Enabled = false;
                 }
-                var points = new Point(e.X, e.Y);
-                if (this.curFigure == null)
-                {
-                    this.curFigure = this.curFactory.create(points, this.paintingProperty);
-                    this.figureList.Add(this.curFigure);                                      //adding new figure
 
-                    if (curFigure is DynamicFigure)
+
+                var points = new Point(e.X, e.Y);
+                if (e.Button == MouseButtons.Left)
+                {
+                    if (this.curFigure == null)
                     {
-                        System.Drawing.Point temporaryPoints = new System.Drawing.Point(points.X, points.Y); //points for preview
-                        DynamicFigure figure = (DynamicFigure)this.curFigure;
-                        figure.points.Add(temporaryPoints);
+                        this.curFigure = this.curFactory.create(points, this.paintingProperty);
+                        this.figureList.Add(this.curFigure);                                      //adding new figure
                     }
+                   
+                    this.curFigure.addPoints(points);
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+
+                    this.curFigure.addPoints(points);          
+                    this.curFigure.closeFigure();
+                    this.curFigure = null;                       //stop drawing figure
 
                 }
-                else if (this.curFigure.Equals(this.figureList.Last())) //continue drawing 
-
-                    if (this.curFigure is DynamicFigure)
-                    {
-
-                        DynamicFigure figure = (DynamicFigure)this.curFigure;
-                        if (e.Button == MouseButtons.Right)
-                        {
-                            figure.points.RemoveAt(figure.points.Count - 1);
-                            figure.addPoints(points);
-                            figure.closeFigure();
-                            this.curFigure = null;
-                        }
-                        else
-                        {
-                            figure.addPoints(points);
-                        }
-
-                    }
+                this.pictureBox.Invalidate();
             }
+
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -200,16 +190,7 @@ namespace PaintOOP
             if (this.curFigure != null)
             {
                 var points = new Point(e.X, e.Y);
-                if (this.curFigure is StaticFigure)   //preview of static figures
-                {
-                    StaticFigure figure = (StaticFigure)this.curFigure;
-                    figure.bottomRightCoords = points;
-                }
-                else
-                {                                     //preview of dynamic figures
-                    DynamicFigure figure = (DynamicFigure)this.curFigure;
-                    figure.points[figure.points.Count - 1] = points;
-                }
+                this.curFigure.changeLastPoints(points);  //preview of figures
                 this.pictureBox.Invalidate();
             }
 
@@ -217,17 +198,7 @@ namespace PaintOOP
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
-            if (this.curFigure != null)
-            {
-                if (this.curFigure is StaticFigure)
-                {
-                    StaticFigure figure = (StaticFigure)this.curFigure;
-                    var points = new Point(e.X, e.Y);
-                    figure.bottomRightCoords = points;
-                    this.curFigure = null;
-                }
-            }
-            this.pictureBox.Invalidate();
+
         }
 
         private void undoToolStripButton_Click(object sender, EventArgs e)

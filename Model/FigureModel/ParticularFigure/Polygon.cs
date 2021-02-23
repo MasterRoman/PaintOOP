@@ -37,21 +37,14 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
             pen.Width = this.pen.width;
             pen.DashStyle = this.pen.style;
 
-          
-            int count = this.points.Count;
-            if ((count < 3) || (this.points[0] != this.points.Last()))
-            {
-                for (int i = 0; i < count - 1; i++)
-                    e.Graphics.DrawLine(pen, this.points[i], this.points[i + 1]);
+            System.Drawing.Brush brush = new System.Drawing.SolidBrush(this.brush.color);
+            e.Graphics.FillPolygon(brush, this.points.ToArray());
+            e.Graphics.DrawPolygon(pen, this.points.ToArray());
 
-            }
-            else
-            {
-                System.Drawing.Brush brush = new System.Drawing.SolidBrush(this.brush.color);
-                e.Graphics.FillPolygon(brush,this.points.ToArray());
-                e.Graphics.DrawPolygon(pen, this.points.ToArray());
-            }
         }
+
+
+
     }
 
     public class PolygonFactory : FigureFactory
