@@ -199,13 +199,13 @@ namespace PaintOOP
             if (this.curFigure != null)
             {
                 var points = new Point(e.X, e.Y);
-                if (this.curFigure is StaticFigure)   //preview of closed figures
+                if (this.curFigure is StaticFigure)   //preview of static figures
                 {
                     StaticFigure figure = (StaticFigure)this.curFigure;
                     figure.bottomRightCoords = points;
                 }
                 else
-                {                                     //preview of open and openClosed figures
+                {                                     //preview of dynamic figures
                     DynamicFigure figure = (DynamicFigure)this.curFigure;
                     figure.points[figure.points.Count - 1] = points;
                 }
