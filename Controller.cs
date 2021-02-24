@@ -16,7 +16,7 @@ namespace PaintOOP
 {
     public partial class Controller : Form
     {
-        private List<FigureFactory> factoryList;
+        private List<IFactory<IFigure>> factoryList;
         private ListFigure figureList;
         private IFactory<IFigure> curFactory;
         private IFigure curFigure;
@@ -30,7 +30,7 @@ namespace PaintOOP
 
         private void Controller_Load(object sender, EventArgs e)
         {
-            this.factoryList = new List<FigureFactory>();
+            this.factoryList = new List<IFactory<IFigure>>();
             this.figureList = new ListFigure();
             this.curFactory = null;
             this.curFigure = null;

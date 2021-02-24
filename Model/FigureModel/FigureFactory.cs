@@ -9,12 +9,8 @@ namespace PaintOOP.Model
 {
     public interface IFactory<TFigure> where TFigure : IFigure
     {
-        IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty);
+        TFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty);
 
     }
 
-    public abstract class FigureFactory : IFactory<IFigure>
-    {
-        public abstract IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty);
-    }
 }

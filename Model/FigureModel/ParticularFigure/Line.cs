@@ -49,9 +49,9 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 
  
 
-    public class LineFactory : FigureFactory
+    public class LineFactory : IFactory<IFigure>
     {
-        public override IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty)
+        public IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
             return new Line(points, paintingProperty);
         }

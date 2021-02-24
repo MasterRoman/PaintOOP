@@ -43,9 +43,9 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
     }
 
 
-    public class EllipseFactory : FigureFactory
+    public class EllipseFactory : IFactory<IFigure> 
     {
-        public override IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty)
+        public IFigure create(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
             return new Ellipse(points, paintingProperty);
         }
