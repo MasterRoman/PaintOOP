@@ -24,7 +24,6 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
         }
         public override void drawFigure(PaintEventArgs e)
         {
-            base.drawFigure(e);
            
             System.Drawing.Pen pen = new System.Drawing.Pen(this.pen.color);
             pen.Width = this.pen.width;

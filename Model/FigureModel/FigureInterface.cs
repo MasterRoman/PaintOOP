@@ -22,23 +22,15 @@ namespace PaintOOP.Model
 
     public abstract class Figure : IFigure
     {
-        public virtual void drawFigure(System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
+        public abstract void drawFigure(System.Windows.Forms.PaintEventArgs e);
+      
         public LineConfiguration pen { get; set; }
 
         public FillConfiguration brush { get; set; }
 
-        public virtual void addPoints(System.Drawing.Point points)
-        {
-            
-        }
+        public abstract void addPoints(System.Drawing.Point points);
 
-        public virtual void closeFigure()
-        {
-
-        }
+        public abstract void closeFigure();
 
         public abstract void changeLastPoints(System.Drawing.Point points);
     }
@@ -52,6 +44,16 @@ namespace PaintOOP.Model
         public override void changeLastPoints(Point points)
         {
             this.bottomRightCoords = points;
+        }
+
+        public override void addPoints(Point points)
+        {
+           
+        }
+
+        public override void closeFigure()
+        {
+
         }
 
 
@@ -68,9 +70,11 @@ namespace PaintOOP.Model
 
         public override void addPoints(Point points)
         {
-            base.addPoints(points);
             this.points.Add(points);
         }
+
+        public abstract override void closeFigure();
+       
 
 
     }
