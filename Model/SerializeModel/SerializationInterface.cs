@@ -8,8 +8,8 @@ namespace PaintOOP.Model.SerializeModel
 {
     interface ISerialization<TFigure> where TFigure : IFigure
     {
-        void serialize(IFigure figure);
-        IFigure deserialize();
+        void serialize(TFigure figure);
+        TFigure deserialize();
 
         string filePath { get; set; }
 
