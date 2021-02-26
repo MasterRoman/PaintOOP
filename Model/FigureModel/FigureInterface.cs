@@ -13,8 +13,7 @@ namespace PaintOOP.Model
     public interface IFigure
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
-        LineConfiguration pen { get; set; }
-        FillConfiguration brush { get; set; }
+   
         void addPoints(System.Drawing.Point points);
         void closeFigure();
         void changeLastPoints(System.Drawing.Point points);
@@ -24,9 +23,9 @@ namespace PaintOOP.Model
     {
         public abstract void drawFigure(System.Windows.Forms.PaintEventArgs e);
       
-        public LineConfiguration pen { get; set; }
+        protected LineConfiguration pen { get; set; }
 
-        public FillConfiguration brush { get; set; }
+        protected FillConfiguration brush { get; set; }
 
         public abstract void addPoints(System.Drawing.Point points);
 
