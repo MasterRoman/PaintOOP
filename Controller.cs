@@ -222,5 +222,91 @@ namespace PaintOOP
             }
             this.pictureBox.Invalidate();
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            actOpen();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            actOpen();
+        }
+
+        private void actOpen()
+        {
+            openFileDialog.ShowDialog();
+            String path = openFileDialog.FileName;
+
+            if (path.Length != 0)
+            {
+
+                this.figureList.Clear();
+                this.figureList.cleanUndoList();
+
+
+                //deserialize 
+
+                this.pictureBox.Invalidate();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            actSave();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            actSave();
+        }
+
+        private void actSave()
+        {
+           //serialize
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            actSaveAs();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            actSaveAs();
+        }
+
+        private void actSaveAs()
+        {
+            saveFileDialog.ShowDialog();
+            String path = saveFileDialog.FileName;
+
+            if (path.Length != 0)
+            {
+
+               
+
+
+                //serialize 
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            actNew();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            actNew();
+        }
+
+        private void actNew()
+        {
+            this.figureList.Clear();
+            this.figureList.cleanUndoList();
+
+            this.pictureBox.Invalidate();
+        }
     }
 }

@@ -40,5 +40,10 @@ namespace PaintOOP.Model
             this.undoFigures.Clear();
         }
 
+        public void cleanUndoList()
+        {
+            this.undoFigures.Clear();
+        }
+
     }
 }
