@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 using PaintOOP.View;
 using PaintOOP.Model;
 using PaintOOP.Model.FigureModel.ParticularFigure;
 using PaintOOP.Services;
+using PaintOOP.Model.SerializeModel;
 
 namespace PaintOOP
 {
@@ -112,9 +115,8 @@ namespace PaintOOP
                 if (item == e.ClickedItem)
                 {
                     item.CheckState = CheckState.Checked;
-                    this.curFactory = this.factoryList[0];
                     int number = Int32.Parse(item.Tag.ToString());
-                    if (number < this.factoryList.Count && number > 0)
+                    if (number < this.factoryList.Count)
                     {
                         this.curFactory = this.factoryList[number];
                     }
@@ -169,13 +171,13 @@ namespace PaintOOP
                         this.curFigure = this.curFactory.create(points, this.paintingProperty);
                         this.figureList.Add(this.curFigure);                                      //adding new figure
                     }
-                   
+
                     this.curFigure.addPoints(points);
                 }
                 else if (this.curFigure != null && e.Button == MouseButtons.Right)
                 {
 
-                    this.curFigure.addPoints(points);          
+                    this.curFigure.addPoints(points);
                     this.curFigure.closeFigure();
                     this.curFigure = null;                       //stop drawing figure
 
@@ -244,27 +246,35 @@ namespace PaintOOP
                 this.figureList.Clear();
                 this.figureList.cleanUndoList();
 
+                string json = "";
+                try
+                {
+                    using (StreamReader sr = new StreamReader(path))
+                    {
+                        json = sr.ReadToEnd();
+                    }
 
-                //deserialize 
+                    //deserialize 
+                    List<Wrapper> wrapperList = JsonSerializer.Deserialize<List<Wrapper>>(json);
+                    foreach (Wrapper wrapper in wrapperList)
+                    {
+                        var type = wrapper.type;
 
+
+                        IFigure figure = (IFigure)Activator.CreateInstance(Type.GetType(type));
+
+                        this.figureList.Add(figure.deserialize(wrapper.data));
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
                 this.pictureBox.Invalidate();
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            actSave();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            actSave();
-        }
-
-        private void actSave()
-        {
-           //serialize
-        }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -280,14 +290,36 @@ namespace PaintOOP
         {
             saveFileDialog.ShowDialog();
             String path = saveFileDialog.FileName;
-
+            string json = "[";
+            string temp = "";
             if (path.Length != 0)
             {
-
-               
-
-
                 //serialize 
+                try
+                {
+                    foreach (IFigure fig in figureList)
+                    {
+                        temp = fig.serialize();
+                        Wrapper wrapper = new Wrapper(fig.ToString(), temp);
+                        json += JsonSerializer.Serialize<Wrapper>(wrapper, null);
+
+                        json += ",";
+                    }
+
+                    json = json.Remove(json.Length - 1);
+                    json += "]";
+
+
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
+                        sw.Write(json);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

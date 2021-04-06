@@ -11,6 +11,10 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
     class Ellipse : StaticFigure
     {
+        public Ellipse()
+        {
+
+        }
 
         public Ellipse(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {

@@ -12,6 +12,10 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
     public class Rectangle : StaticFigure
     {
 
+        public Rectangle()
+        {
+
+        }
         public Rectangle(System.Drawing.Point points,IPaintingProperty paintingProperty)
         {
 

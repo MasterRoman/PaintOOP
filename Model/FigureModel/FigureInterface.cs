@@ -7,35 +7,61 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PaintOOP.Model.PaintingModel;
 
+using PaintOOP.Model.SerializeModel;
+
+using System.Text.Json;
+
 namespace PaintOOP.Model
 {
    
-    public interface IFigure
+    public interface IFigure : ISerialization<IFigure>
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
    
         void addPoints(System.Drawing.Point points);
         void closeFigure();
         void changeLastPoints(System.Drawing.Point points);
+
     }
+
+   
 
     public abstract class Figure : IFigure
     {
         public abstract void drawFigure(System.Windows.Forms.PaintEventArgs e);
       
-        protected LineConfiguration pen { get; set; }
+        public Figure()
+        {
 
-        protected FillConfiguration brush { get; set; }
+        }
+        public LineConfiguration pen { get; set; }
+
+        public FillConfiguration brush { get; set; }
 
         public abstract void addPoints(System.Drawing.Point points);
 
         public abstract void closeFigure();
 
         public abstract void changeLastPoints(System.Drawing.Point points);
+
+        public virtual string serialize()
+        {
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new ColorJsonConverter());
+            return JsonSerializer.Serialize(this, this.GetType(), options); 
+        }
+
+        public virtual IFigure deserialize(string json)
+        {
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new ColorJsonConverter());
+            return (IFigure)JsonSerializer.Deserialize(json, this.GetType(), options); 
+        }
     }
 
     public abstract class StaticFigure : Figure
     {
+
         public System.Drawing.Point topLeftCoords { get; set; }
         public System.Drawing.Point bottomRightCoords { get; set; }
 
@@ -54,8 +80,6 @@ namespace PaintOOP.Model
         {
 
         }
-
-
     }
 
     public abstract class DynamicFigure : Figure
@@ -74,8 +98,6 @@ namespace PaintOOP.Model
 
         public abstract override void closeFigure();
        
-
-
     }
 
 }

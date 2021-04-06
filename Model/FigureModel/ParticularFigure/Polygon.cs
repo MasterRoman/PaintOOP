@@ -11,6 +11,11 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
     public class Polygon : DynamicFigure
     {
+
+        public Polygon()
+        {
+
+        }
         public Polygon(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
 

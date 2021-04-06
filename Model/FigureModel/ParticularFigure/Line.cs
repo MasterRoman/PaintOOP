@@ -11,6 +11,10 @@ namespace PaintOOP.Model.FigureModel.ParticularFigure
 {
     public class Line : DynamicFigure
     {
+        public Line()
+        {
+
+        }
         public Line(System.Drawing.Point points, IPaintingProperty paintingProperty)
         {
 
