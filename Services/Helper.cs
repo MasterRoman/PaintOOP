@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PaintOOP.Services
@@ -13,14 +9,14 @@ namespace PaintOOP.Services
         {
             int width = Math.Abs(topLeftCoords.X - bottomRightCoords.X);
             int height = Math.Abs(topLeftCoords.Y - bottomRightCoords.Y);
-            
+
             Rectangle rect;
 
             if (topLeftCoords.X < bottomRightCoords.X)
             {
                 if (topLeftCoords.Y < bottomRightCoords.Y)
                 {
-                    rect = new Rectangle(topLeftCoords.X, topLeftCoords.Y,width,height);
+                    rect = new Rectangle(topLeftCoords.X, topLeftCoords.Y, width, height);
                 }
                 else
                 {

@@ -15,6 +15,8 @@ using PaintOOP.Model.FigureModel.ParticularFigure;
 using PaintOOP.Services;
 using PaintOOP.Model.SerializeModel;
 
+using System.Reflection;
+
 namespace PaintOOP
 {
     public partial class Controller : Form
@@ -24,6 +26,7 @@ namespace PaintOOP
         private IFactory<IFigure> curFactory;
         private IFigure curFigure;
         private PaintingProperty paintingProperty;
+        private List<Type> dllTypes;
 
 
         public Controller()
@@ -38,6 +41,7 @@ namespace PaintOOP
             this.curFactory = null;
             this.curFigure = null;
             this.paintingProperty = new PaintingProperty();
+            this.dllTypes = new List<Type>();
 
             var color = this.fillColorChangeToolStripButton.BackColor;
             var brush = this.paintingProperty.brushProperty;
@@ -131,22 +135,47 @@ namespace PaintOOP
         private void addFigureButton_Click(object sender, EventArgs e)
         {
 
-            ToolStripButton button = new ToolStripButton();
-            button.Text = "NEW";
-            button.AutoSize = false;
-            button.Size = new Size(36, 34);
-            button.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            button.Tag = this.factoryList.Count;
             //button.Image = ((System.Drawing.Image)(resources.GetObject("pointerToolStripButton.Image")));
 
-            button.ImageTransparentColor = Color.Magenta;
+            try
+            {
+                openFileDialog.ShowDialog();
+                String path = openFileDialog.FileName;
 
-            //TODO: configure button with information from dll
+                Assembly dll = Assembly.LoadFile(path);
 
-            //add factory of new figure to list 
-            //this.factoryList.Add();
+                foreach (Type type in dll.GetExportedTypes())
+                {
+                    var isAssignable = typeof(IFigure).IsAssignableFrom(type);
+                    if (isAssignable)
+                    {
+                        dllTypes.Add(type);
+                    }
+                    isAssignable = typeof(IFactory<IFigure>).IsAssignableFrom(type);
+                    if (isAssignable)
+                    {
+                        IFactory<IFigure> factory = (IFactory<IFigure>)Activator.CreateInstance(type);
+                        this.factoryList.Add(factory);
 
-            this.instrumentToolStrip.Items.Add(button);
+                        ToolStripButton button = new ToolStripButton();
+                        button.Text = this.dllTypes.Last().Name.ToString().Substring(0,4);
+                        button.Font = new Font(FontFamily.GenericSansSerif,(float)10.0);
+                        button.AutoSize = false;
+                        button.Size = new Size(36, 34);
+                        button.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                        button.Tag = this.factoryList.Count - 1;
+                        button.ImageTransparentColor = Color.Magenta;
+
+                        this.instrumentToolStrip.Items.Add(button);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         //mouse events 
@@ -256,12 +285,37 @@ namespace PaintOOP
 
                     //deserialize 
                     List<Wrapper> wrapperList = JsonSerializer.Deserialize<List<Wrapper>>(json);
+
+                    IFigure figure = null;
+
                     foreach (Wrapper wrapper in wrapperList)
                     {
                         var type = wrapper.type;
 
+                        foreach (Type dllType in this.dllTypes)
+                        {
+                            if (dllType.ToString() == type)
+                            {
+                                figure = (IFigure)Activator.CreateInstance(dllType);
+                            }
+                        }
 
-                        IFigure figure = (IFigure)Activator.CreateInstance(Type.GetType(type));
+
+
+                        try
+                        {
+
+                            if (figure == null)
+                                figure = (IFigure)Activator.CreateInstance(Type.GetType(type));
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            continue;
+                        }
+
+
+
 
                         this.figureList.Add(figure.deserialize(wrapper.data));
 
@@ -300,7 +354,7 @@ namespace PaintOOP
                     foreach (IFigure fig in figureList)
                     {
                         temp = fig.serialize();
-                        Wrapper wrapper = new Wrapper(fig.ToString(), temp);
+                        Wrapper wrapper = new Wrapper(fig.GetType().ToString(), temp);
                         json += JsonSerializer.Serialize<Wrapper>(wrapper, null);
 
                         json += ",";

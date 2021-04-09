@@ -1,35 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PaintOOP.Model.PaintingModel;
-
-using PaintOOP.Model.SerializeModel;
-
 using System.Text.Json;
+using PaintOOP.Model.PaintingModel;
+using PaintOOP.Model.SerializeModel;
 
 namespace PaintOOP.Model
 {
-   
+
     public interface IFigure : ISerialization<IFigure>
     {
         void drawFigure(System.Windows.Forms.PaintEventArgs e);
-   
+
         void addPoints(System.Drawing.Point points);
         void closeFigure();
         void changeLastPoints(System.Drawing.Point points);
 
     }
 
-   
+
 
     public abstract class Figure : IFigure
     {
         public abstract void drawFigure(System.Windows.Forms.PaintEventArgs e);
-      
+
         public Figure()
         {
 
@@ -48,14 +41,14 @@ namespace PaintOOP.Model
         {
             var options = new JsonSerializerOptions();
             options.Converters.Add(new ColorJsonConverter());
-            return JsonSerializer.Serialize(this, this.GetType(), options); 
+            return JsonSerializer.Serialize(this, this.GetType(), options);
         }
 
         public virtual IFigure deserialize(string json)
         {
             var options = new JsonSerializerOptions();
             options.Converters.Add(new ColorJsonConverter());
-            return (IFigure)JsonSerializer.Deserialize(json, this.GetType(), options); 
+            return (IFigure)JsonSerializer.Deserialize(json, this.GetType(), options);
         }
     }
 
@@ -73,7 +66,7 @@ namespace PaintOOP.Model
 
         public override void addPoints(Point points)
         {
-           
+
         }
 
         public override void closeFigure()
@@ -97,7 +90,7 @@ namespace PaintOOP.Model
         }
 
         public abstract override void closeFigure();
-       
+
     }
 
 }
