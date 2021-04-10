@@ -291,7 +291,7 @@ namespace PaintOOP
                     foreach (Wrapper wrapper in wrapperList)
                     {
                         var type = wrapper.type;
-
+                        figure = null;
                         foreach (Type dllType in this.dllTypes)
                         {
                             if (dllType.ToString() == type)
